@@ -11,14 +11,14 @@
     },
     "dependencies": {
         "@popperjs/core": "^2.11.8",
-        "bootstrap": "^5.3.3",
-        "vue": "^3.5.13"
+        "bootstrap": "^5.3.8",
+        "vue": "^3.5.28"
     },
     "devDependencies": {
-        "@vitejs/plugin-vue": "^5.2.1",
-        "sass": "^1.84.0",
+        "@vitejs/plugin-vue": "^6.0.4",
+        "sass": "^1.97.3",
         "ts-node": "^10.9.2",
-        "typescript": "^5.7.3",
-        "vite": "^6.1.0"
+        "typescript": "^5.9.3",
+        "vite": "^7.3.1"
     }
 }
