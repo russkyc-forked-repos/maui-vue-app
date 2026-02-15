@@ -79,6 +79,7 @@
         <When Condition="$([MSBuild]::IsOSPlatform('linux')) And '$(TargetFramework)' == 'net10.0'">
             <ItemGroup>
                 <PackageReference Include="Photino.Blazor" Version="4.0.13" />
+                <PackageReference Include="Microsoft.AspNetCore.Components.WebView" Version="10.0.0" />
                 <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="10.0.3" />
             </ItemGroup>
         </When>
@@ -104,6 +105,15 @@
         DestinationFiles="@(WwwrootDirFiles->'$(OutDir)wwwroot\%(RecursiveDir)%(Filename)%(Extension)')"
         SkipUnchangedFiles="true"
     />
+  </Target>
+
+  <Target Condition="$([MSBuild]::IsOSPlatform('linux')) And '$(TargetFramework)' == 'net10.0'" Name="CopyPackageAssets" AfterTargets="Build">
+      <ItemGroup>
+          <PackageAssets Include="$(NuGetPackageRoot)microsoft.aspnetcore.components.webview\10.0.0\staticwebassets\*.*" />
+      </ItemGroup>
+      <Copy
+          SourceFiles="@(PackageAssets)"
+          DestinationFolder="$(OutputPath)\wwwroot\_framework" />
   </Target>
 
 </Project>
