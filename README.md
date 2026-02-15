@@ -57,7 +57,7 @@ Optional:
 
 ### Building the Project
 
-**Build the project using VSCode .NET MAUI or .NET Meteor extensions** or build it manually, using the following commands:
+**Build the project using VSCode .NET Meteor, .NET MAUI extensions** or build it manually, using the following commands:
 
 - **Windows:**
 

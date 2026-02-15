@@ -1,4 +1,25 @@
-<script lang="ts" src="./App.ts"></script>
+<script lang="ts" setup>
+import { reactive } from "vue";
+
+const simpleObj = reactive({ loaded: false, webText: "Running on a web browser. No Machine info !!" });
+
+function loadInfo() {
+    console.log("Button Clicked !!");
+    if (window.hasOwnProperty("DotNet")) {
+        console.log("Calling GetSystemInfo");
+        window.DotNet.invokeMethodAsync("BlazorMaui.Core", "GetSystemInfo").then((out: any) => {
+            console.log("Got System Info");
+            if (typeof out != undefined) {
+                simpleObj.loaded = true;
+                simpleObj.webText = out;
+            }
+        });
+    }
+    else {
+        simpleObj.loaded = true;
+    }
+}
+</script>
 
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark p-3 bg-danger" id="headerNav">
